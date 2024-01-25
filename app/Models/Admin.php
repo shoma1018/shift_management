@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class admins extends Model
 {
     use HasFactory;
+    
+    
+    //リレーションシップ
+    public function multiAuthUser()   
+    {
+        return $this->belongsTo(MultiAuthUser::class);
+    }
 }

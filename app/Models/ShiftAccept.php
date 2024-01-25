@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class shift_accepts extends Model
 {
     use HasFactory;
+    
+    
+    //リレーション
+    public function shiftApplication()   
+    {
+        return $this->belongsTo(ShiftApplication::class);
+    }
 }
