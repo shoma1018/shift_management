@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('multi_auth_user_id')->constrained();
             $table->string('name');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('password');
             $table->string('genders');
             $table->date('birthdays');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
