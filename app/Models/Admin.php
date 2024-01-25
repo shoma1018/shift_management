@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class Admin extends Authenticatable
 {
+
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
@@ -30,3 +31,14 @@ class Admin extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 }
+
+    use HasFactory;
+    
+    
+    //リレーションシップ
+    public function multiAuthUser()   
+    {
+        return $this->belongsTo(MultiAuthUser::class);
+    }
+}
+

@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class absence_accepts extends Model
 {
     use HasFactory;
+    
+    
+    //リレーション
+    public function absenceApplication()   
+    {
+        return $this->belongsTo(AbsenceApplication::class);
+    }
+    
 }

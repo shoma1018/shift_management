@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class Employee extends Authenticatable
 {
+
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
@@ -31,5 +32,24 @@ class Employee extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    use HasFactory;
+    
+    
+    //リレーション
+    public function multiAuthUser()   
+    {
+        return $this->belongsTo(MultiAuthUser::class);
+    }
+    
+    public function shiftApplications()   
+    {
+        return $this->hasMany(ShiftApplication::class);
+    }
+    
+    public function absenceApplications()   
+    {
+        return $this->hasMany(AbsenceApplication::class);
+    }
 }
 
