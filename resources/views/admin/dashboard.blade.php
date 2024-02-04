@@ -19,6 +19,11 @@
             {{$shift->date}}
             <img src="{{ $shift->image_url }}" alt="画像が読み込めません。"/>
         </div>
+        
+        <div>
+            <a href="/admin/info">従業員情報</a>
+        </div>
+        
         <div>
             <a href="/admin/logout">ログアウト</a>
         </div>

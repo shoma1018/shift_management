@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\ShiftRequest;
 use App\Models\Shift;
-use Illuminate\Support\Facades\Validator;
 use Datetime;
 
 class HomeController extends Controller
