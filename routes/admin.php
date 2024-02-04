@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\Shift\PostController;
+use App\Http\Controllers\Admin\EmployeeController;
 
 //管理者ログイン
 Route::prefix('admin')->group(function () {
@@ -22,4 +23,9 @@ Route::prefix('admin')->middleware('auth:admins')->group(function(){
 Route::prefix('admin')->group(function () {
     Route::get('shift/post', [PostController::class, 'create']);  
     Route::post('/dashboard', [PostController::class, 'store']);  
+});
+
+//従業員情報
+Route::prefix('admin')->group(function () {
+    Route::get('/info', [EmployeeController::class, 'index']);  
 });
