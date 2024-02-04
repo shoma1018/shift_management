@@ -29,4 +29,16 @@ class EmployeeController extends Controller
         $employee->fill($input)->save();
         return redirect('/admin/info');
     }
+    
+    public function edit(Employee $employee)
+    {
+        return view('admin.info_employee.edit')->with(['employee' => $employee]);
+    }
+    
+    public function update(Request $request, MultiAuthUser $multi_auth_user, Employee $employee)
+    {
+        $input = $request['employee'];
+        $employee->fill($input)->save();
+        return redirect('/admin/info');
+    }
 }
