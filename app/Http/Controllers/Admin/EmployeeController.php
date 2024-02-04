@@ -41,4 +41,10 @@ class EmployeeController extends Controller
         $employee->fill($input)->save();
         return redirect('/admin/info');
     }
+    
+    public function delete(Employee $employee)
+    {
+        $employee->delete();
+        return redirect('/admin/info');
+    }
 }

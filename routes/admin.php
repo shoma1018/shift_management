@@ -32,4 +32,5 @@ Route::prefix('admin')->group(function () {
     Route::post('/info', [EmployeeController::class, 'store']);
     Route::get('/info/{employee}/edit', [EmployeeController::class, 'edit']);
     Route::put('/info/{employee}', [EmployeeController::class, 'update']);
+    Route::delete('/info/{employee}', [EmployeeController::class,'delete']);
 });

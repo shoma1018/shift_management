@@ -38,6 +38,13 @@
                                   <td>{{ $employee->date_of_joining_company}}</td>
                                   <td>{{ $employee->employment_status }}</td>
                                   <td><a href="/admin/info/{{ $employee->id }}/edit">編集</a></td>
+                                  <td>
+                                       <form action="/admin/info/{{ $employee->id }}" id="form_{{ $employee->id }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="button" onclick="deleteEmployee({{ $employee->id }})">削除</button> 
+                                        </form>
+                                  </td>
                                 </tr>
                             </div>
                         @endforeach
@@ -45,6 +52,16 @@
                 </tbody>
             </table>
         </div>
+        
+        <script>
+            function deleteEmployee(id) {
+                'use strict'
+        
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                    document.getElementById(`form_${id}`).submit();
+                }
+            }
+        </script>
         
         <div>
             <a href="/admin/logout">ログアウト</a>
