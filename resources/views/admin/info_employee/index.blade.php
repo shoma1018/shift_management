@@ -23,6 +23,7 @@
                         <th>生年月日</th>
                         <th>入社年月</th>
                         <th>雇用形態</th>
+                        <th>編集</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,6 +37,7 @@
                                   <td>{{ $employee->birthdays }}</td>
                                   <td>{{ $employee->date_of_joining_company}}</td>
                                   <td>{{ $employee->employment_status }}</td>
+                                  <td><a href="/admin/info/{{ $employee->id }}/edit">編集</a></td>
                                 </tr>
                             </div>
                         @endforeach

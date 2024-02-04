@@ -29,5 +29,7 @@ Route::prefix('admin')->group(function () {
 Route::prefix('admin')->group(function () {
     Route::get('/info', [EmployeeController::class, 'index']); 
     Route::get('/info/create', [EmployeeController::class, 'create']); 
-    Route::post('/info/', [EmployeeController::class, 'store']);
+    Route::post('/info', [EmployeeController::class, 'store']);
+    Route::get('/info/{employee}/edit', [EmployeeController::class, 'edit']);
+    Route::put('/info/{employee}', [EmployeeController::class, 'update']);
 });
