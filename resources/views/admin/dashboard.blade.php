@@ -12,9 +12,10 @@
         <form action="/admin/dashboard" method="GET" enctype="multipart/form-data">
             @csrf
             <label for="date">シフト検索</label>
-            <input type="date" name="date" value="{{$shift->date}}"/>
+            <input type="date" name="date" value=“{{$shift->date}}"/>
             <input type="submit" value="検索"/>
         </form>
+        
         <div>
             {{$shift->date}}
             <img src="{{ $shift->image_url }}" alt="画像が読み込めません。"/>

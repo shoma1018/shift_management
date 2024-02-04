@@ -14,6 +14,7 @@ class AdminSeeder extends Seeder
     public function run()
     {
         DB::table('admins')->insert([
+                'id' => '1',
                 'multi_auth_user_id' => '1',
                 'name' => 'admin1',
                 'email' => 'administrator1@gmail.com',
@@ -25,6 +26,7 @@ class AdminSeeder extends Seeder
          ]);
          
          DB::table('admins')->insert([
+                'id' => '2',
                 'multi_auth_user_id' => '2',
                 'name' => 'admin2',
                 'email' => 'administrator2@gmail.com',
