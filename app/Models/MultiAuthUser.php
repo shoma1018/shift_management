@@ -5,11 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class multi_auth_user extends Model
+class MultiAuthUser extends Model
 {
     use HasFactory;
     
-    //リレーション
+    protected $fillable = [
+        'id',
+    ];
+    
+     //リレーション
     public function admins()   
     {
         return $this->hasMany(Admin::class);
@@ -19,5 +23,4 @@ class multi_auth_user extends Model
     {
         return $this->hasMany(Employee::class);
     }
-    
 }

@@ -15,6 +15,7 @@ class EmployeeSeeder extends Seeder
     public function run()
     {
         DB::table('employees')->insert([
+                'id' => '3',
                 'multi_auth_user_id' => '3',
                 'name' => 'employee1',
                 'email' => 'employee1@gmail.com',
@@ -28,6 +29,7 @@ class EmployeeSeeder extends Seeder
          ]);
          
          DB::table('employees')->insert([
+                'id' => '4',
                 'multi_auth_user_id' => '4',
                 'name' => 'employee2',
                 'email' => 'employee2@gmail.com',
@@ -41,6 +43,7 @@ class EmployeeSeeder extends Seeder
          ]);
          
          DB::table('employees')->insert([
+                'id' => '5',
                 'multi_auth_user_id' => '5',
                 'name' => 'employee3',
                 'email' => 'employee3@gmail.com',
