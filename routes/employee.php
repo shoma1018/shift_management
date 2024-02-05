@@ -22,4 +22,6 @@ Route::prefix('employee')->middleware('auth.employees:employees')->group(functio
 //ユーザー情報
 Route::prefix('employee')->group(function () {
     Route::get('/setting', [SettingController::class, 'index']);
+    Route::get('/setting/edit', [SettingController::class, 'edit']);
+    Route::put('/setting/{employee}', [SettingController::class, 'update']);
 });

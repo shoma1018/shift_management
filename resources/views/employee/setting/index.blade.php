@@ -11,6 +11,10 @@
             <a href="/employee/dashboard">Home</a>
         </div>
         
+        <div>
+            <a href="/employee/setting/edit">編集</a>
+        </div>
+        
         <div class="employee_information">
             ID：<br>
             <p>{{$employee->id}}</p>
