@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\Shift\PostController;
 use App\Http\Controllers\Admin\EmployeeController;
+use App\Http\Controllers\Admin\SettingController;
 
 //管理者ログイン
 Route::prefix('admin')->group(function () {
@@ -33,4 +34,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/info/{employee}/edit', [EmployeeController::class, 'edit']);
     Route::put('/info/{employee}', [EmployeeController::class, 'update']);
     Route::delete('/info/{employee}', [EmployeeController::class,'delete']);
+});
+
+//管理者情報
+Route::prefix('admin')->group(function () {
+    Route::get('/setting', [SettingController::class, 'index']); 
 });
