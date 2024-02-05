@@ -12,7 +12,7 @@
         <form action="/admin/dashboard" method="GET" enctype="multipart/form-data">
             @csrf
             <label for="date">シフト検索</label>
-            <input type="date" name="date" value=“{{$shift->date}}"/>
+            <input type="date" name="date" value="{{$shift->date}}"/>
             <input type="submit" value="検索"/>
         </form>
         
@@ -23,6 +23,10 @@
         
         <div>
             <a href="/admin/info">従業員情報</a>
+        </div>
+        
+        <div>
+            <a href="/admin/setting">管理者情報</a>
         </div>
         
         <div>
