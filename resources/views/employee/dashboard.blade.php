@@ -20,6 +20,10 @@
         </div>
         
         <div>
+            <a href="/employee/setting">ユーザー情報</a>
+        </div>
+        
+        <div>
             <a href="/employee/logout">ログアウト</a>
         </div>
     </body>
