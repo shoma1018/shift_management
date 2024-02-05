@@ -9,16 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class SettingController extends Controller
 {
-    public function index(Admin $admin)
+    public function index()
     {
-        $adminId = Auth::id();
         $selected_admin = Auth::guard('admins')->user();
         return view('admin.setting.index')->with(['admin' => $selected_admin]);
     }
     
     public function edit()
     {
-        $adminId = Auth::id();
         $selected_admin = Auth::guard('admins')->user();
         return view('admin.setting.edit')->with(['admin' => $selected_admin]);
     }
