@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Employee\LoginController;
 use App\Http\Controllers\Employee\HomeController;
+use App\Http\Controllers\Employee\SettingController;
 
 //従業員ログイン
 Route::prefix('employee')->group(function() {
@@ -15,5 +16,10 @@ Route::prefix('employee')->group(function() {
 
 //ダッシュボードの表示
 Route::prefix('employee')->middleware('auth.employees:employees')->group(function(){
-    Route::get('/', [HomeController::class, 'dashboard'])->name('employee.dashboard');
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('employee.dashboard');
+});
+
+//ユーザー情報
+Route::prefix('employee')->group(function () {
+    Route::get('/setting', [SettingController::class, 'index']);
 });
