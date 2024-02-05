@@ -15,4 +15,18 @@ class SettingController extends Controller
         $selected_admin = Auth::guard('admins')->user();
         return view('admin.setting.index')->with(['admin' => $selected_admin]);
     }
+    
+    public function edit()
+    {
+        $adminId = Auth::id();
+        $selected_admin = Auth::guard('admins')->user();
+        return view('admin.setting.edit')->with(['admin' => $selected_admin]);
+    }
+    
+    public function update(Request $request, Admin $admin)
+    {
+        $input = $request['admin'];
+        $admin->fill($input)->save();
+        return redirect('/admin/setting');
+    }
 }

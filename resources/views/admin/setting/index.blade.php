@@ -11,6 +11,10 @@
             <a href="/admin/dashboard">Home</a>
         </div>
         
+        <div>
+            <a href="/admin/setting/edit">編集</a>
+        </div>
+        
         <div class="admin_information">
             ID：<br>
             <p>{{$admin->id}}</p>

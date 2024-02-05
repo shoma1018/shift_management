@@ -35,7 +35,7 @@ class EmployeeController extends Controller
         return view('admin.info_employee.edit')->with(['employee' => $employee]);
     }
     
-    public function update(Request $request, MultiAuthUser $multi_auth_user, Employee $employee)
+    public function update(Request $request, Employee $employee)
     {
         $input = $request['employee'];
         $employee->fill($input)->save();

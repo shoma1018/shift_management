@@ -38,5 +38,7 @@ Route::prefix('admin')->group(function () {
 
 //管理者情報
 Route::prefix('admin')->group(function () {
-    Route::get('/setting', [SettingController::class, 'index']); 
+    Route::get('/setting', [SettingController::class, 'index']);
+    Route::get('/setting/edit', [SettingController::class, 'edit']);
+    Route::put('/setting/{admin}', [SettingController::class, 'update']);
 });
