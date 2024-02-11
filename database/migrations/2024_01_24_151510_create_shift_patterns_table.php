@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('shift_patterns', function (Blueprint $table) {
             $table->id();
             $table->foreignId('shift_application_id')->constrained();
-            $table->date('day');
+            $table->Integer('day');
             $table->time('start_time');
             $table->time('end_time');
         });

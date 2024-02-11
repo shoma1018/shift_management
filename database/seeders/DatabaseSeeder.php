@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
             MultiAuthUserSeeder::class,
             AdminSeeder::class,
             EmployeeSeeder::class,
+            ShiftApplicationSeeder::class,
+            ShiftPatternSeeder::class,
         ]);
     }
 }
