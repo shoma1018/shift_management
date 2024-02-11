@@ -7,6 +7,14 @@
     <body>
         <h1>従業員画面トップ</h1>
         
+        <div>
+            <a href='/employee/application/shift/create/'>シフト申請</a>
+        </div>
+        
+        <div>
+            <a href='/employee/application/index/{{$employee->id}}'>申請履歴</a>
+        </div>
+        
         <form action="/employee/dashboard" method="GET" enctype="multipart/form-data">
             @csrf
             <label for="date">シフト検索</label>
