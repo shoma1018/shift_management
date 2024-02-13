@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>シフト申請</h1>
-        <form action="/employee/application" method="POST">
+        <form action="/employee/application/shift" method="POST">
             @csrf
             <label>シフト希望</label><br>
             月曜日：<input type="time" name="shift_pattern[start_time1]" min="09:00" max="21:00"/> ~ <input type="time" name="shift_pattern[end_time1]" min="09:00" max="21:00"/><br>

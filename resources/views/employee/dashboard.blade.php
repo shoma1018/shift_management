@@ -12,7 +12,16 @@
         </div>
         
         <div>
-            <a href='/employee/application/index/{{$employee->id}}'>申請履歴</a>
+            <a href='/employee/application/absence/create/'>欠勤申請</a>
+        </div>
+        
+        
+        <div>
+            <a href='/employee/application/shift/index/{{$employee->id}}'>シフト申請履歴</a>
+        </div>
+        
+        <div>
+            <a href='/employee/application/absence/index/{{$employee->id}}'>欠勤申請履歴</a>
         </div>
         
         <form action="/employee/dashboard" method="GET" enctype="multipart/form-data">

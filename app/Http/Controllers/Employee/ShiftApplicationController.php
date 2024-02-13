@@ -15,14 +15,14 @@ class ShiftApplicationController extends Controller
     {
         $selected_employee = Auth::guard('employees')->id();
         $selected_shift_application = $shift_application->where('employee_id', $selected_employee)->get();
-        return view('employee.application.index')->with(['shift_applications' => $selected_shift_application]);
+        return view('employee.application.shift.index')->with(['shift_applications' => $selected_shift_application]);
     }
     
     public function show(ShiftApplication $shift_application, ShiftPattern $shift_pattern)
     {
         $selected_shift_application_id = $shift_application->id;
         $shift_patterns = $shift_pattern->where('shift_application_id', $selected_shift_application_id)->get();
-        return view('employee.application.show')->with(['shift_patterns' => $shift_patterns]);
+        return view('employee.application.shift.show')->with(['shift_patterns' => $shift_patterns]);
     }
     
     public function create()
@@ -30,15 +30,18 @@ class ShiftApplicationController extends Controller
         return view('employee.application.shift.create');
     }
     
-    public function store(Request $request, ShiftApplication $shift_application, ShiftPattern $shift_pattern)
+    public function store(Request $request, ShiftApplication $shift_application)
     {
         $input = $request['shift_application'];
-        $shift_application->employee_id = Auth::guard('employees')->id();
+        $employee_id = Auth::guard('employees')->id();
+        $shift_application->employee_id = $employee_id;
         $shift_application->fill($input)->save();
         
         $input = $request['shift_pattern'];
+        //dd($input);
         for ($i=1;$i<=7;$i++){
             if ($input["start_time{$i}"] && $input["end_time{$i}"]){
+                $shift_pattern = new ShiftPattern;
                 $shift_pattern->shift_application_id = $shift_application->id;
                 $shift_pattern->day = $i;
                 $shift_pattern->start_time = $input["start_time{$i}"];
@@ -47,6 +50,6 @@ class ShiftApplicationController extends Controller
             }
         }
         
-        return redirect('/employee/application/index/{$shift_application->employee_id}');
+        return redirect("/employee/application/shift/index/{$employee_id}");
     }
 }

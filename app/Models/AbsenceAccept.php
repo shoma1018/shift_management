@@ -9,7 +9,6 @@ class absence_accepts extends Model
 {
     use HasFactory;
     
-    
     //リレーション
     public function absenceApplication()   
     {
