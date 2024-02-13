@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
             EmployeeSeeder::class,
             ShiftApplicationSeeder::class,
             ShiftPatternSeeder::class,
+            AbsenceApplicationSeeder::class,
+            AbsenceShiftSeeder::class,
         ]);
     }
 }

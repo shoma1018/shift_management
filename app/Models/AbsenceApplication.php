@@ -5,10 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class absence_applications extends Model
+class AbsenceApplication extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+        'id',
+        'employee_id',
+    ];
     
     //リレーション
     public function employee()   
