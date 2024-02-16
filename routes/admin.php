@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\Shift\PostController;
+use App\Http\Controllers\Admin\AcceptController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\SettingController;
 
@@ -24,6 +25,13 @@ Route::prefix('admin')->middleware('auth:admins')->group(function(){
 Route::prefix('admin')->group(function () {
     Route::get('shift/post', [PostController::class, 'create']);  
     Route::post('/dashboard', [PostController::class, 'store']);  
+});
+
+//承認機能
+Route::prefix('admin')->group(function () {
+    Route::get('/accept', [AcceptController::class, 'index']);
+    Route::put('/accept/shift/{shift_application}', [AcceptController::class, 'shiftAccept']);
+    Route::put('/accept/absence/{absence_application}', [AcceptController::class, 'absenceAccept']);
 });
 
 //従業員情報

@@ -9,6 +9,9 @@
         <div>
             <a href="/admin/shift/post">シフト投稿</a>
         </div>
+        <div>
+            <a href="/admin/accept">申請承認</a>
+        </div>
         <form action="/admin/dashboard" method="GET" enctype="multipart/form-data">
             @csrf
             <label for="date">シフト検索</label>

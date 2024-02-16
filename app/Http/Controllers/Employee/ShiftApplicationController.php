@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ShiftApplication;
 use App\Models\ShiftPattern;
+use App\Models\ShiftAccept;
 use Illuminate\Support\Facades\Auth;
 
 class ShiftApplicationController extends Controller
@@ -38,7 +39,7 @@ class ShiftApplicationController extends Controller
         $shift_application->fill($input)->save();
         
         $input = $request['shift_pattern'];
-        //dd($input);
+        
         for ($i=1;$i<=7;$i++){
             if ($input["start_time{$i}"] && $input["end_time{$i}"]){
                 $shift_pattern = new ShiftPattern;
@@ -49,6 +50,11 @@ class ShiftApplicationController extends Controller
                 $shift_pattern->save();
             }
         }
+        
+        $shift_accept = new ShiftAccept();
+        $shift_accept->shift_application_id = $shift_application->id;
+        $shift_accept->comment = "";
+        $shift_accept->save();
         
         return redirect("/employee/application/shift/index/{$employee_id}");
     }

@@ -13,6 +13,7 @@
                         <th>申請日時</th>
                         <th>シフト希望</th>
                         <th>コメント</th>
+                        <th>状態</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,8 +22,24 @@
                             <div>
                                 <tr>
                                      <td>{{ $shift_application->created_at }}</td>
-                                     <td><a href='/employee/application/{{$shift_application->id}}'>詳細</a></a></td>
+                                     <td><a href='/employee/application/{{$shift_application->id}}'>詳細</a></td>
                                      <td>{{ $shift_application->comment }}</td>
+                                     <td>
+                                        @if (isset($shift_application->shiftAccept->consent))
+                                            @switch ($shift_application->shiftAccept->consent)
+                                                @case(0)
+                                                    拒否
+                                                    @break;
+                                                @case(1)
+                                                    承認
+                                                    @break;
+                                            @endswitch
+                                        @else
+                                            申請中
+                                        
+                                        @endif
+                                        
+                                    </td>
                                 </tr>
                             </div>
                         @endforeach

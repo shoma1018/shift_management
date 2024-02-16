@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('absence_accepts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('absence_application_id')->constrained();
-            $table->boolean('consent');
+            $table->boolean('consent')->nullable();;
             $table->string('comment');
             $table->timestamps();
         });
