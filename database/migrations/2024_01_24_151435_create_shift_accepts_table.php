@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('shift_accepts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('shift_application_id')->constrained();
-            $table->boolean('consent');
+            $table->boolean('consent')->nullable();
             $table->string('comment');
             $table->timestamps();
         });

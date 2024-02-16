@@ -15,6 +15,7 @@
                         <th>出勤時間</th>
                         <th>代行者</th>
                         <th>欠勤理由</th>
+                        <th>状態</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,20 @@
                                      <td>{{ $absence_shift->substitute }}</td>
                                      <td>{{ $absence_shift->reason }}</td>
                                      @endforeach
+                                     <td>
+                                        @if (isset($absence_application->absenceAccept->consent))
+                                            @switch ($absence_application->absenceAccept->consent)
+                                                @case(0)
+                                                    拒否
+                                                    @break;
+                                                @case(1)
+                                                    承認
+                                                    @break;
+                                            @endswitch
+                                        @else
+                                            申請中
+                                        @endif
+                                    </td>
                                 </tr>
                             </div>
                         @endforeach
