@@ -1,39 +1,32 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>管理者ログイン</title>
-    </head>
+@extends('admin.header')
+@section('title')
+    <title>管理者ダッシュボード</title>
+@endsection
+@section('content')
     <body>
-        <h1>管理者画面トップ</h1>
-        <div>
-            <a href="/admin/shift/post">シフト投稿</a>
-        </div>
-        <div>
-            <a href="/admin/accept">申請承認</a>
-        </div>
-        <form action="/admin/dashboard" method="GET" enctype="multipart/form-data">
-            @csrf
-            <label for="date">シフト検索</label>
-            <input type="date" name="date" value="{{$shift->date}}"/>
-            <input type="submit" value="検索"/>
-        </form>
-        
-        <div>
-            {{$shift->date}}
-            <img src="{{ $shift->image_url }}" alt="画像が読み込めません。"/>
+        <div class = "flex justify-center mt-5">
+            <form action="/admin/dashboard" method="GET" enctype="multipart/form-data">
+                @csrf
+                @if(isset($shift->date))
+                    <input class = "rounded-lg border border-gray-500" type="date" name="date" value="{{$shift->date}}"/>
+                @else
+                    <input class = "rounded-lg border border-gray-500" type="date" name="date" value="{{$search}}"/>
+                @endif
+                <div class="bg-gray-50 inline-flex border border-gray-200 rounded-lg text-gray-900 select-none divide-x">
+                    <button type="submit" class="py-0.5 px-4 bg-gray-50 hover:bg-gray-100 active:bg-gray-200 border border-gray-500 first:rounded-l-lg last:rounded-r-lg">
+                        検索
+                    </button>
+                </div>
+            </form>
         </div>
         
-        <div>
-            <a href="/admin/info">従業員情報</a>
-        </div>
-        
-        <div>
-            <a href="/admin/setting">管理者情報</a>
-        </div>
-        
-        <div>
-            <a href="/admin/logout">ログアウト</a>
-        </div>
+        @if(isset($shift->image_url))
+            <div class = "border border-indigo">
+                <img src="{{ $shift->image_url }}" alt="画像が読み込めません。"/>
+            </div>
+        @else
+            <p class="text-center">No image</p>
+        @endif
     </body>
+@endsection
 </html>

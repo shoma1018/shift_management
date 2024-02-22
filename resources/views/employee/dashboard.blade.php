@@ -1,47 +1,31 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>従業員ログイン</title>
-    </head>
+@extends('employee.header')
+@section('title')
+    <title>従業員ダッシュボード</title>
+@endsection
+@section('content')
     <body>
-        <h1>従業員画面トップ</h1>
-        
-        <div>
-            <a href='/employee/application/shift/create/'>シフト申請</a>
+        <div class = "flex justify-center mt-5">
+            <form action="/employee/dashboard" method="GET" enctype="multipart/form-data">
+                @csrf
+                @if(isset($shift->date))
+                    <input class = "rounded-lg border border-gray-500" type="date" name="date" value="{{$shift->date}}"/>
+                @else
+                    <input class = "rounded-lg border border-gray-500" type="date" name="date" value="{{$search}}"/>
+                @endif
+                <div class="bg-gray-50 inline-flex border border-gray-200 rounded-lg text-gray-900 select-none divide-x">
+                    <button type="submit" class="py-0.5 px-4 bg-gray-50 hover:bg-gray-100 active:bg-gray-200 border border-gray-500 first:rounded-l-lg last:rounded-r-lg">
+                        検索
+                    </button>
+                </div>
+            </form>
         </div>
         
-        <div>
-            <a href='/employee/application/absence/create/'>欠勤申請</a>
-        </div>
-        
-        
-        <div>
-            <a href='/employee/application/shift/index/{{$employee->id}}'>シフト申請履歴</a>
-        </div>
-        
-        <div>
-            <a href='/employee/application/absence/index/{{$employee->id}}'>欠勤申請履歴</a>
-        </div>
-        
-        <form action="/employee/dashboard" method="GET" enctype="multipart/form-data">
-            @csrf
-            <label for="date">シフト検索</label>
-            <input type="date" name="date" value="{{$shift->date}}"/>
-            <input type="submit" value="検索"/>
-        </form>
-        
-        <div>
-            {{$shift->date}}
-            <img src="{{ $shift->image_url }}" alt="画像が読み込めません。"/>
-        </div>
-        
-        <div>
-            <a href="/employee/setting">ユーザー情報</a>
-        </div>
-        
-        <div>
-            <a href="/employee/logout">ログアウト</a>
-        </div>
+        @if(isset($shift->image_url))
+            <div class = "border border-indigo">
+                <img src="{{ $shift->image_url }}" alt="画像が読み込めません。"/>
+            </div>
+        @else
+            <p class="text-center">No image</p>
+        @endif
     </body>
-</html>
+@endsection

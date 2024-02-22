@@ -4,31 +4,18 @@ namespace App\Http\Controllers\Employee;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\ShiftApplication;
 use App\Models\ShiftPattern;
 use App\Models\ShiftAccept;
-use Illuminate\Support\Facades\Auth;
+
 
 class ShiftApplicationController extends Controller
 {
-    
-    public function index(ShiftApplication $shift_application)
-    {
-        $selected_employee = Auth::guard('employees')->id();
-        $selected_shift_application = $shift_application->where('employee_id', $selected_employee)->get();
-        return view('employee.application.shift.index')->with(['shift_applications' => $selected_shift_application]);
-    }
-    
-    public function show(ShiftApplication $shift_application, ShiftPattern $shift_pattern)
-    {
-        $selected_shift_application_id = $shift_application->id;
-        $shift_patterns = $shift_pattern->where('shift_application_id', $selected_shift_application_id)->get();
-        return view('employee.application.shift.show')->with(['shift_patterns' => $shift_patterns]);
-    }
-    
     public function create()
     {
-        return view('employee.application.shift.create');
+        $selected_employee = Auth::guard('employees')->user();
+        return view('employee.application.shift.create')->with(['employee' => $selected_employee]);
     }
     
     public function store(Request $request, ShiftApplication $shift_application)
@@ -56,6 +43,6 @@ class ShiftApplicationController extends Controller
         $shift_accept->comment = "";
         $shift_accept->save();
         
-        return redirect("/employee/application/shift/index/{$employee_id}");
+        return redirect("/employee/application/{$employee_id}");
     }
 }

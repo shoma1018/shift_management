@@ -1,45 +1,92 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>管理者</title>
-    </head>
+@extends('employee.header')
+@section('title')
+    <title>ユーザー情報</title>
+@endsection
+@section('content')
     <body>
-        <h1>ユーザー情報</h1>
+        <h1 class="text-2xl text-center mt-10">ユーザー情報</h1>
         
-        <div>
-            <a href="/employee/dashboard">Home</a>
+        <div class="container mx-auto">
+            <div class="mt-10 ml-40">
+                <div class="p-2 w-full">
+                  <button type = "submit" class="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
+                      <a href="/employee/setting/edit">編集</a>
+                  </button>
+                </div>
+            </div>
         </div>
         
-        <div>
-            <a href="/employee/setting/edit">編集</a>
-        </div>
-        
-        <div class="employee_information">
-            ID：<br>
-            <p>{{$employee->id}}</p>
-            氏名：<br>
-            <p>{{$employee->name}}</p>
-            メールアドレス：<br>
-            <p>{{$employee->email}}</p>
-            パスワード：<br>
-            <p>{{$employee->password}}</p>
-            性別：<br>
-            <p>{{$employee->genders}}</p>
-            生年月日：<br>
-            <p>{{$employee->birthdays}}</p>
-            入社年月：<br>
-            <p>{{$employee->date_of_joining_company}}</p>
-            雇用形態：<br>
-            <p>{{$employee->employment_status}}</p>
-        </div>
-        
-        <div>
-            <a href="/admin/info">従業員情報</a>
-        </div>
-        
-        <div>
-            <a href="/admin/logout">ログアウト</a>
+        <div class="mt-20">
+            <div class="flex flex-wrap mx-60 justify-between">
+                <div class="mb-4 w-[45%]">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                      ID
+                    </label>
+                    <p class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        {{$employee->id}}
+                    </p>
+                </div>
+                
+                <div class="mb-4 w-[45%]">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                      氏名
+                    </label>
+                    <p class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        {{$employee->name}}
+                    </p>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap mx-60 justify-between">
+                <div class="mb-4 w-[45%]">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                      メールアドレス
+                    </label>
+                    <p class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        {{$employee->email}}
+                    </p>
+                </div>
+                
+                <div class="mb-4 w-[45%]">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                      性別
+                    </label>
+                    <p class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        {{$employee->genders}}
+                    </p>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap mx-60 justify-between">
+                <div class="mb-4 w-[45%]">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                      生年月日
+                    </label>
+                    <p class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        {{$employee->birthdays}}
+                    </p>
+                </div>
+                
+                <div class="mb-4 w-[45%]">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                      入社年月
+                    </label>
+                    <p class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        {{$employee->date_of_joining_company}}
+                    </p>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap mx-60 justify-between">
+                <div class="mb-4 w-[45%]">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                      雇用形態
+                    </label>
+                    <p class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        {{$employee->employment_status}}
+                    </p>
+                </div>
+            </div>
         </div>
     </body>
-</html>
+@endsection
