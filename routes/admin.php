@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\Shift\PostController;
 use App\Http\Controllers\Admin\AcceptController;
+use App\Http\Controllers\Employee\ApplicationController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\SettingController;
 
@@ -32,6 +33,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/accept', [AcceptController::class, 'index']);
     Route::put('/accept/shift/{shift_application}', [AcceptController::class, 'shiftAccept']);
     Route::put('/accept/absence/{absence_application}', [AcceptController::class, 'absenceAccept']);
+    Route::get('/application/shift/{shift_application}', [ApplicationController::class, 'adminShow']);
 });
 
 //従業員情報

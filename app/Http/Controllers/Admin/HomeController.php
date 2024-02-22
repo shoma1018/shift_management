@@ -24,6 +24,6 @@ class HomeController extends Controller
         
         $selected_shift = $shift->where('date', $search)->first();
         
-        return view('admin.dashboard')->with(['shift' => $selected_shift]);
+        return view('admin.dashboard')->with(['shift' => $selected_shift, 'search' => $search]);
     }
 }

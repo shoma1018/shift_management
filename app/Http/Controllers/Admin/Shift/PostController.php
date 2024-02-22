@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\shift;
+namespace App\Http\Controllers\Admin\Shift;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

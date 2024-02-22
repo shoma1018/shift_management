@@ -12,19 +12,10 @@ use App\Models\AbsenceAccept;
 
 class AbsenceApplicationController extends Controller
 {
-    public function index(AbsenceApplication $absence_application, AbsenceShift $absence_shift)
+    public function create()
     {
-        $selected_employee_id = Auth::guard('employees')->id();
-        $selected_absence_applications = $absence_application->where('employee_id', $selected_employee_id)->get();
-        $selected_absence_application_ids = $selected_absence_applications->pluck('id')->toArray();
-        
-        $selected_absence_shifts = $absence_shift->whereIn('absence_application_id', $selected_absence_application_ids)->get();
-        return view('employee.application.absence.index')->with(['absence_applications' => $selected_absence_applications, 'absence_shifts' => $selected_absence_shifts]);
-    }
-    
-     public function create()
-    {
-        return view('employee.application.absence.create');
+        $selected_employee = Auth::guard('employees')->user();
+        return view('employee.application.absence.create')->with(['employee' => $selected_employee]);;
     }
     
     public function store(Request $request, AbsenceApplication $absence_application, AbsenceShift $absence_shift)
@@ -41,6 +32,6 @@ class AbsenceApplicationController extends Controller
         $absence_accept->comment = "";
         $absence_accept->save();
         
-        return redirect('/employee/application/absence/index/{$shift_application->employee_id}');
+        return redirect('/employee/application/{$shift_application->employee_id}');
     }
 }
