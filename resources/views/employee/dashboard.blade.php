@@ -7,10 +7,12 @@
         <div class = "flex justify-center mt-5">
             <form action="/employee/dashboard" method="GET" enctype="multipart/form-data">
                 @csrf
-                @if(isset($shift->date))
+                 @if(isset($shift->date))
                     <input class = "rounded-lg border border-gray-500" type="date" name="date" value="{{$shift->date}}"/>
-                @else
+                @elseif(isset($search))
                     <input class = "rounded-lg border border-gray-500" type="date" name="date" value="{{$search}}"/>
+                @else
+                    <input class = "rounded-lg border border-gray-500" type="date" name="date" value=""/>
                 @endif
                 <div class="bg-gray-50 inline-flex border border-gray-200 rounded-lg text-gray-900 select-none divide-x">
                     <button type="submit" class="py-0.5 px-4 bg-gray-50 hover:bg-gray-100 active:bg-gray-200 border border-gray-500 first:rounded-l-lg last:rounded-r-lg">
