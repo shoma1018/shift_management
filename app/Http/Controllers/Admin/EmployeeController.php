@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\MultiAuthUser;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
@@ -23,9 +24,10 @@ class EmployeeController extends Controller
     {
         $input = $request['employee'];
         $multi_auth_user->fill($input)->save();
-        $a = $multi_auth_user->latest('id')->first();
-        $b = $a->id;
-        $input += ['multi_auth_user_id' => $b];
+        $latest_multi_auth_user = $multi_auth_user->latest('id')->first();
+        $latest_multi_auth_user_id = $latest_multi_auth_user->id;
+        $input += ['multi_auth_user_id' => $latest_multi_auth_user_id];
+        $input['password'] = Hash::make($input['password']);
         $employee->fill($input)->save();
         return redirect('/admin/info');
     }
@@ -44,7 +46,11 @@ class EmployeeController extends Controller
     
     public function delete(Employee $employee)
     {
+        $multi_auth_user = MultiAuthUser::find($employee->multi_auth_user_id);
+        
         $employee->delete();
+        $multi_auth_user->delete();
+        
         return redirect('/admin/info');
     }
 }

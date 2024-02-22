@@ -34,15 +34,6 @@
                 
                 <div class="mb-4 w-[45%]">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                      パスワード
-                    </label>
-                    <input type="password" name="employee[password]" value = "{{ $employee->password }}" class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"/><br>
-                </div>
-            </div>
-            
-            <div class="flex flex-wrap mx-60 justify-between">
-                <div class="mb-4 w-[45%]">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                       性別
                     </label>
                     <div class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
@@ -50,23 +41,25 @@
                         <input type="radio" name="employee[genders]" value = "女性" {{ $employee->genders == "女性" ? "checked" : "" }} class="ml-20">女性</input><br>
                     </div>
                 </div>
-                
+            </div>
+            
+            <div class="flex flex-wrap mx-60 justify-between">
                 <div class="mb-4 w-[45%]">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                       生年月日
                     </label>
                     <input type="text" name="employee[birthdays]" value = "{{ $employee->birthdays }}" class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"/><br>
                 </div>
-            </div>
-            
-            <div class="flex flex-wrap mx-60 justify-between">
+                
                 <div class="mb-4 w-[45%]">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                       入社年月
                     </label>
                     <input type="text" name="employee[date_of_joining_company]" value = "{{ $employee->date_of_joining_company }}" class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"/><br>
                 </div>
-                
+            </div>
+            
+            <div class="flex flex-wrap mx-60 justify-between">
                 <div class="mb-4 w-[45%]">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                       雇用形態
