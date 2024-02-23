@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Shift;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 use App\Models\Shift;
 use Cloudinary;
 
@@ -14,7 +14,7 @@ class PostController extends Controller
         return view('admin.shift.create');
     }
     
-    public function store(Request $request, Shift $shift)
+    public function store(PostRequest $request, Shift $shift)
     {
         $input = $request['shift'];
         $image_url = Cloudinary::upload($request->file('shift.image')->getRealPath())->getSecurePath();
