@@ -23,16 +23,17 @@
           </nav>
           
           <div x-data="{ dropdown: false }" class="p-2">
-            <button @click="dropdown = true" class="px-4 py-2 text-gray bg-blue-500 rounded-md">
+            <button @click="dropdown = true" class="px-4 py-2 text-gray rounded-md">
               <div class = "mx-5">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                 </svg>
               </div>
             </button>
             <ul @click.away="dropdown = false" x-transition.opacity.duration.150ms x-show="dropdown" class="absolute w-32 border px-1 py-2 bg-gray-50 rounded-md">
-              <li class="p-2"><a href = "/employee/setting" class = "mr-5 hover:text-gray-900">ユーザー情報</a></li>
-              <li class="p-2"><a href = "/employee/logout" class = "mr-5 hover:text-gray-900">ログアウト</a></li>
+              <li class="p-2"><a href = "/employee/setting" class = "text-sm hover:text-gray-900">ユーザー情報</a></li>
+              <li class="p-2"><a href = "/employee/setting/password" class = "text-sm hover:text-gray-900">パスワード変更</a></li>
+              <li class="p-2"><a href = "/employee/logout" class = "text-sm hover:text-gray-900">ログアウト</a></li>
             </ul>
         </div>
           

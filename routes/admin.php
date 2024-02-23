@@ -8,13 +8,13 @@ use App\Http\Controllers\Admin\AcceptController;
 use App\Http\Controllers\Employee\ApplicationController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\ChangePasswordController;
 
 //管理者ログイン
 Route::prefix('admin')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('admin.login.index');
     Route::post('login', [LoginController::class, 'login'])->name('admin.login.login');
     Route::get('logout', [LoginController::class, 'logout'])->name('admin.login.logout');
-    Route::get('/', [HomeController::class, 'dashboard'])->name('admin.dashboard');
 });
 
 Route::prefix('admin')->middleware('auth:admins')->group(function(){
@@ -51,4 +51,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/setting', [SettingController::class, 'index']);
     Route::get('/setting/edit', [SettingController::class, 'edit']);
     Route::put('/setting/{admin}', [SettingController::class, 'update']);
+});
+
+//パスワード変更
+Route::prefix('admin')->middleware('auth:admins')->group(function () {
+    Route::get('/setting/password', [ChangePasswordController::class, 'adminEdit']);
+    Route::put('/setting/password/change', [ChangePasswordController::class, 'adminChangePassword']);
 });
