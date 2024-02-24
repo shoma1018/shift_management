@@ -8,6 +8,7 @@ use App\Http\Controllers\Employee\ApplicationController;
 use App\Http\Controllers\Employee\ShiftApplicationController;
 use App\Http\Controllers\Employee\AbsenceApplicationController;
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\ChangeEmailController;
 
 //従業員ログイン
 Route::prefix('employee')->group(function() {
@@ -17,34 +18,38 @@ Route::prefix('employee')->group(function() {
 });
 
 //ダッシュボードの表示
-Route::prefix('employee')->middleware('auth.employees:employees')->group(function(){
+Route::prefix('employee')->middleware('auth:employees')->group(function(){
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('employee.dashboard');
 });
 
 
 //シフト申請
-Route::prefix('employee')->group(function () {
+Route::prefix('employee')->middleware('auth:employees')->group(function () {
     Route::get('/application/shift/create', [ShiftApplicationController::class, 'create']);
     Route::post('/application/shift', [ShiftApplicationController::class, 'store']);
 });
 
 //欠勤申請
-Route::prefix('employee')->group(function () {
+Route::prefix('employee')->middleware('auth:employees')->group(function () {
     Route::get('/application/absence/create', [AbsenceApplicationController::class, 'create']);
     Route::post('/application/absence', [AbsenceApplicationController::class, 'store']);
 });
 
 //申請履歴
-Route::prefix('employee')->group(function () {
+Route::prefix('employee')->middleware('auth:employees')->group(function () {
     Route::get('/application/{employee}', [ApplicationController::class, 'index']);
     Route::get('/application/shift/{shift_application}', [ApplicationController::class, 'employeeShow']);
 });
 
 //ユーザー情報
-Route::prefix('employee')->group(function () {
+Route::prefix('employee')->middleware('auth:employees')->group(function () {
     Route::get('/setting', [SettingController::class, 'index']);
-    Route::get('/setting/edit', [SettingController::class, 'edit']);
-    Route::put('/setting/{employee}', [SettingController::class, 'update']);
+});
+
+//メールアドレス変更
+Route::prefix('employee')->middleware('auth:employees')->group(function () {
+    Route::get('/setting/email', [ChangeEmailController::class, 'employeeEdit']);
+    Route::put('/setting/email/change', [ChangeEmailController::class, 'employeeChangeEmail']);
 });
 
 //パスワード変更
