@@ -24,13 +24,13 @@ Route::prefix('admin')->middleware('auth:admins')->group(function(){
 
 
 //シフト投稿
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth:admins')->group(function () {
     Route::get('shift/post', [PostController::class, 'create']);  
     Route::post('/dashboard', [PostController::class, 'store']);  
 });
 
 //承認機能
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth:admins')->group(function () {
     Route::get('/accept', [AcceptController::class, 'index']);
     Route::put('/accept/shift/{shift_application}', [AcceptController::class, 'shiftAccept']);
     Route::put('/accept/absence/{absence_application}', [AcceptController::class, 'absenceAccept']);
@@ -38,7 +38,7 @@ Route::prefix('admin')->group(function () {
 });
 
 //従業員情報
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth:admins')->group(function () {
     Route::get('/info', [EmployeeController::class, 'index']); 
     Route::get('/info/create', [EmployeeController::class, 'create']); 
     Route::post('/info', [EmployeeController::class, 'store']);
@@ -48,7 +48,7 @@ Route::prefix('admin')->group(function () {
 });
 
 //管理者情報
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth:admins')->group(function () {
     Route::get('/setting', [SettingController::class, 'index']);
     Route::get('/setting/edit', [SettingController::class, 'edit']);
     Route::put('/setting/{admin}', [SettingController::class, 'update']);
