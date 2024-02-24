@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\AddEmployeeRequest;
+use App\Http\Requests\EditEmployeeRequest;
 use App\Models\Employee;
 use App\Models\MultiAuthUser;
 use Illuminate\Support\Facades\Hash;
@@ -20,7 +21,7 @@ class EmployeeController extends Controller
         return view('admin.info_employee.create');
     }
     
-    public function store(Request $request, MultiAuthUser $multi_auth_user, Employee $employee)
+    public function store(AddEmployeeRequest $request, MultiAuthUser $multi_auth_user, Employee $employee)
     {
         $input = $request['employee'];
         $multi_auth_user->fill($input)->save();
@@ -37,7 +38,7 @@ class EmployeeController extends Controller
         return view('admin.info_employee.edit')->with(['employee' => $employee]);
     }
     
-    public function update(Request $request, Employee $employee)
+    public function update(EditEmployeeRequest $request, Employee $employee)
     {
         $input = $request['employee'];
         $employee->fill($input)->save();
