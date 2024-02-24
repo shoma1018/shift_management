@@ -18,11 +18,11 @@ class EmployeeSeeder extends Seeder
                 'id' => '3',
                 'multi_auth_user_id' => '3',
                 'name' => 'employee1',
-                'email' => 'employee1@gmail.com',
+                'email' => 'employee1@example.com',
                 'password' => Hash::make('password'),
                 'genders' => '男性',
-                'birthdays' => '1997-6-12',
-                'date_of_joining_company' => '2020-7-1',
+                'birthdays' => '2000-10-01',
+                'date_of_joining_company' => '2020-07-01',
                 'employment_status' => 'アルバイト',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
@@ -32,29 +32,14 @@ class EmployeeSeeder extends Seeder
                 'id' => '4',
                 'multi_auth_user_id' => '4',
                 'name' => 'employee2',
-                'email' => 'employee2@gmail.com',
+                'email' => 'employee2@example.com',
                 'password' => Hash::make('password'),
                 'genders' => '女性',
-                'birthdays' => '1999-1-25',
-                'date_of_joining_company' => '2021-4-1',
+                'birthdays' => '1990-03-01',
+                'date_of_joining_company' => '2021-04-01',
                 'employment_status' => 'アルバイト',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
          ]);
-         
-         DB::table('employees')->insert([
-                'id' => '5',
-                'multi_auth_user_id' => '5',
-                'name' => 'employee3',
-                'email' => 'employee3@gmail.com',
-                'password' => Hash::make('password'),
-                'genders' => '男性',
-                'birthdays' => '2000-5-22',
-                'date_of_joining_company' => '2022-5-1',
-                'employment_status' => 'アルバイト',
-                'created_at' => new DateTime(),
-                'updated_at' => new DateTime(),
-         ]);
-         
     }
 }
