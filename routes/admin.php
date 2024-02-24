@@ -9,6 +9,7 @@ use App\Http\Controllers\Employee\ApplicationController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\ChangeEmailController;
 
 //管理者ログイン
 Route::prefix('admin')->group(function () {
@@ -51,6 +52,12 @@ Route::prefix('admin')->group(function () {
     Route::get('/setting', [SettingController::class, 'index']);
     Route::get('/setting/edit', [SettingController::class, 'edit']);
     Route::put('/setting/{admin}', [SettingController::class, 'update']);
+});
+
+//メールアドレス変更
+Route::prefix('admin')->middleware('auth:admins')->group(function () {
+    Route::get('/setting/email', [ChangeEmailController::class, 'adminEdit']);
+    Route::put('/setting/email/change', [ChangeEmailController::class, 'adminChangeEmail']);
 });
 
 //パスワード変更

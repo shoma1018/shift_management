@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PasswordRequest;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,6 +33,7 @@ class ChangePasswordController extends Controller
             return back()->withInput()->with(['error' => '新しいパスワードが現在のパスワードと同じです']);
         }
         
+        //新しいパスワードの誤入力をチェックする
         if(!($request['new_password'] === $request['confirm_password']))
         {
             return back()->withInput()->with(['error' => '新しいパスワードと確認用のパスワードが一致しません']);
