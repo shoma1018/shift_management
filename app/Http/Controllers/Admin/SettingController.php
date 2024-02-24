@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\AdminInformationRequest;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +21,7 @@ class SettingController extends Controller
         return view('admin.setting.edit')->with(['admin' => $selected_admin]);
     }
     
-    public function update(Request $request, Admin $admin)
+    public function update(AdminInformationRequest $request, Admin $admin)
     {
         $input = $request['admin'];
         $admin->fill($input)->save();

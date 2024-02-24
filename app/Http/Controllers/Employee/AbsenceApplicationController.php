@@ -15,7 +15,7 @@ class AbsenceApplicationController extends Controller
     public function create()
     {
         $selected_employee = Auth::guard('employees')->user();
-        return view('employee.application.absence.create')->with(['employee' => $selected_employee]);;
+        return view('employee.application.absence.create')->with(['employee' => $selected_employee]);
     }
     
     public function store(Request $request, AbsenceApplication $absence_application, AbsenceShift $absence_shift)

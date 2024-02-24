@@ -30,7 +30,7 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                       メールアドレス
                     </label>
-                    <input type="text" name="employee[email]" placeholder="employee@gmail.com" value="{{ old('employee.email') }}" class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"/><br>
+                    <input type="text" name="employee[email]" placeholder="employee@example.com" value="{{ old('employee.email') }}" class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"/><br>
                     <p class="text-red-500">{{ $errors->first('employee.email') }}</p>
                 </div>
                 
@@ -59,7 +59,7 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                       生年月日
                     </label>
-                    <input type="text" name="employee[birthdays]" placeholder="2000-5-10" value="{{ old('employee.birthdays') }}" class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"/><br>
+                    <input type="text" name="employee[birthdays]" placeholder="2000-05-10" value="{{ old('employee.birthdays') }}" class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"/><br>
                     <p class="text-red-500">{{ $errors->first('employee.birthdays') }}</p>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                       入社年月
                     </label>
-                    <input type="text" name="employee[date_of_joining_company]" placeholder="2020-6-20" value="{{ old('employee.date_of_joining_company') }}" class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"/><br>
+                    <input type="text" name="employee[date_of_joining_company]" placeholder="2020-06-20" value="{{ old('employee.date_of_joining_company') }}" class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"/><br>
                     <p class="text-red-500">{{ $errors->first('employee.date_of_joining_company') }}</p>
                 </div>
                 
