@@ -7,26 +7,25 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use DateTime;
 
-class ShiftApplicationSeeder extends Seeder
+class ShiftAcceptSeeder extends Seeder
 {
     
     public function run()
     {
-         DB::table('shift_applications')->insert([
+        DB::table('shift_accepts')->insert([
                 'id' => '1',
-                'employee_id' => '3',
-                'comment' => 'よろしくお願いします!',
+                'shift_application_id' => '1',
+                'comment' => '',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
          ]);
          
-         DB::table('shift_applications')->insert([
+         DB::table('shift_accepts')->insert([
                 'id' => '2',
-                'employee_id' => '4',
-                'comment' => 'よろしくお願いします!',
+                'shift_application_id' => '2',
+                'comment' => '',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
          ]);
-
     }
 }

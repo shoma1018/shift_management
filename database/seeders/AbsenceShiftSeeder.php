@@ -15,30 +15,40 @@ class AbsenceShiftSeeder extends Seeder
         DB::table('absence_shifts')->insert([
                 'id' => '1',
                 'absence_application_id' => '1',
-                'date' => '2024-2-15',
-                'start_time' => '9:00',
+                'date' => '2024-03-05',
+                'start_time' => '09:00',
                 'end_time' => '12:00',
-                'substitute' => '山田太郎さん/9:00~12:00',
+                'substitute' => 'テスト太郎さん|9:00~12:00',
                 'reason' => '私用のため',
          ]);
          
          DB::table('absence_shifts')->insert([
                 'id' => '2',
                 'absence_application_id' => '2',
-                'date' => '2024-2-22',
-                'start_time' => '9:00',
-                'end_time' => '12:00',
-                'substitute' => '山田太郎さん/9:00~12:00',
+                'date' => '2024-03-23',
+                'start_time' => '09:00',
+                'end_time' => '18:00',
+                'substitute' => '未定',
                 'reason' => '私用のため',
          ]);
          
          DB::table('absence_shifts')->insert([
                 'id' => '3',
                 'absence_application_id' => '3',
-                'date' => '2024-2-15',
+                'date' => '2024-03-06',
                 'start_time' => '10:00',
-                'end_time' => '14:00',
-                'substitute' => '山田太郎さん/10:00~14:00',
+                'end_time' => '15:00',
+                'substitute' => 'テスト太郎さん/10:00~14:00',
+                'reason' => '私用のため',
+         ]);
+         
+         DB::table('absence_shifts')->insert([
+                'id' => '4',
+                'absence_application_id' => '4',
+                'date' => '2024-03-31',
+                'start_time' => '11:00',
+                'end_time' => '20:00',
+                'substitute' => '未定',
                 'reason' => '私用のため',
          ]);
     }
