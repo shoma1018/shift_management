@@ -9,15 +9,17 @@
             @csrf
             <label class="flex justify-center mt-7">欠勤日</label><br>
             <div class="text-xl text-center mt-2 mr-8">
-                <input type = "date" name = "absence_shift[date]" value = "" class="rounded-lg border border-gray-500"/>
-                
+                <input type = "date" name = "absence_shift[date]" value = "{{ old('absence_shift.date') }}" class="rounded-lg border border-gray-500"/>
+                <p class="text-red-500">{{ $errors->first('absence_shift.date') }}</p>
             </div>
             
             <div class = "work_time">
                 <label class="flex justify-center mt-7">出勤時間</label><br>
                 <div class="text-lg text-center mt-2 mr-8">
-                    <input type = "time" list="data-list" name = "absence_shift[start_time]" min="09:00" max="20:00" step = "1800" class="rounded-lg border border-gray-500"/> ~ 
-                    <input type = "time" list="data-list" name = "absence_shift[end_time]"  min="09:00" max="21:00"step = "1800" class="rounded-lg border border-gray-500"/><br>
+                    <input type = "time" list="data-list" name = "absence_shift[start_time]" value="{{ old('absence_shift.start_time') }}" min="09:00" max="20:00" step = "1800" class="rounded-lg border border-gray-500"/> ~ 
+                    <input type = "time" list="data-list" name = "absence_shift[end_time]"  value="{{ old('absence_shift.end_time') }}" min="09:00" max="21:00"step = "1800" class="rounded-lg border border-gray-500"/><br>
+                    <p class="text-red-500">{{ $errors->first('absence_shift.start_time') }}</p>
+                    <p class="text-red-500">{{ $errors->first('absence_shift.end_time') }}</p>
                     <datalist id="data-list">
                         <option value="09:00"></option>
                         <option value="09:30"></option>
@@ -50,13 +52,15 @@
             
             <label class="flex justify-center mt-5">代行者</label><br>
             <div class="flex flex-wrap mx-80">
-                <input type = "textarea" name = "absence_shift[substitute]" size = "30" placeholder = "山田太郎さん/9:00~14:00" class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <input type = "textarea" name = "absence_shift[substitute]" value="{{ old('absence_shift.substitute') }}" size = "30" placeholder = "山田太郎さん|9:00~14:00 / 未定" class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <p class="text-red-500">{{ $errors->first('absence_shift.substitute') }}</p>
             </div>
             
             
             <label class="flex justify-center mt-5">欠勤理由</label><br>
             <div class="flex flex-wrap mx-80">
-                <textarea name="absence_shift[reason]" cols="300" rows="3" placeholder = "私用のため" class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea><br>
+                <textarea name="absence_shift[reason]" value="{{ old('absence_shift.reason') }}" cols="200" rows="3" placeholder = "私用のため" class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea><br>
+                <p class="text-red-500">{{ $errors->first('absence_shift.reason') }}</p>
             </div>
             
             <div class="flex justify-center mt-4">
