@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Employee;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\AbsenceApplicationRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\AbsenceApplication;
 use App\Models\AbsenceShift;
@@ -18,7 +18,7 @@ class AbsenceApplicationController extends Controller
         return view('employee.application.absence.create')->with(['employee' => $selected_employee]);
     }
     
-    public function store(Request $request, AbsenceApplication $absence_application, AbsenceShift $absence_shift)
+    public function store(AbsenceApplicationRequest $request, AbsenceApplication $absence_application, AbsenceShift $absence_shift)
     {
         $absence_application->employee_id = Auth::guard('employees')->id();
         $absence_application->save();
