@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Employee;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\ShiftApplicationRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ShiftApplication;
 use App\Models\ShiftPattern;
@@ -18,7 +18,7 @@ class ShiftApplicationController extends Controller
         return view('employee.application.shift.create')->with(['employee' => $selected_employee]);
     }
     
-    public function store(Request $request, ShiftApplication $shift_application)
+    public function store(ShiftApplicationRequest $request, ShiftApplication $shift_application)
     {
         $input = $request['shift_application'];
         $employee_id = Auth::guard('employees')->id();
