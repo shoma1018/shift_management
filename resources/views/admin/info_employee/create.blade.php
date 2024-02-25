@@ -13,7 +13,7 @@
                       ID
                     </label>
                     <input type="text" name="employee[employee_id]" placeholder="1" value="{{ old('employee.employee_id') }}" class = "appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"/><br>
-                    <p class="text-red-500">{{ $errors->first('employee.id') }}</p>
+                    <p class="text-red-500">{{ $errors->first('employee.employee_id') }}</p>
                 </div>
                 
                 <div class="mb-4 w-[45%]">

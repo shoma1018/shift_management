@@ -24,6 +24,7 @@ class EmployeeController extends Controller
     public function store(AddEmployeeRequest $request, MultiAuthUser $multi_auth_user, Employee $employee)
     {
         $input = $request['employee'];
+        dd($input);
         $multi_auth_user_id = $request['employee.employee_id'];
         $multi_auth_user->id = $multi_auth_user_id;
         $multi_auth_user->save();

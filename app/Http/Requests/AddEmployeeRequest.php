@@ -29,8 +29,8 @@ class AddEmployeeRequest extends FormRequest
     public function messages()
     {
         return [
-            'employee.id.required' => 'idを入力してください',
-            'employee.id.unique' => 'このidはすでに登録されています',
+            'employee.employee_id.required' => 'idを入力してください',
+            'employee.employee_id.unique' => 'このidはすでに登録されています',
             'employee.name' => '氏名を入力してください',
             'employee.email.required' => 'メールアドレスを入力してください',
             'employee.email.email' => 'メールアドレスの形式が正しくありません',
