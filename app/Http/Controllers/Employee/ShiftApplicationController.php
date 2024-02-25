@@ -23,7 +23,10 @@ class ShiftApplicationController extends Controller
         $input = $request['shift_application'];
         $employee_id = Auth::guard('employees')->id();
         $shift_application->employee_id = $employee_id;
-        $shift_application->fill($input)->save();
+        $shift_application_id = $shift_application->max('id') + 1;
+        $shift_application->id = $shift_application_id;
+        $shift_application->comment = $input['comment'];
+        $shift_application->save();
         
         $input = $request['shift_pattern'];
         
