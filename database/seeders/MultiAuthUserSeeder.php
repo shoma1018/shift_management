@@ -36,10 +36,5 @@ class MultiAuthUserSeeder extends Seeder
                 'updated_at' => new DateTime(),
          ]);
          
-         DB::table('multi_auth_users')->insert([
-                'id' => '5',
-                'created_at' => new DateTime(),
-                'updated_at' => new DateTime(),
-         ]);
     }
 }

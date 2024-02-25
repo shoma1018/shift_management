@@ -32,7 +32,7 @@
             </button>
             <ul @click.away="dropdown = false" x-transition.opacity.duration.150ms x-show="dropdown" class="absolute w-32 border px-1 py-2 bg-gray-50 rounded-md">
               <li class="p-2"><a href = "/admin/setting" class = "text-sm hover:text-gray-900">管理者情報</a></li>
-              <li class="p-2"><a href = "/admin//setting/password" class = "text-sm hover:text-gray-900">パスワード変更</a></li>
+              <li class="p-2"><a href = "/admin/setting/password" class = "text-sm hover:text-gray-900">パスワード変更</a></li>
               <li class="p-2"><a href = "/admin/logout" class = "text-sm hover:text-gray-900">ログアウト</a></li>
             </ul>
         </div>
