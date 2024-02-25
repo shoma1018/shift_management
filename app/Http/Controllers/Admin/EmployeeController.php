@@ -24,10 +24,10 @@ class EmployeeController extends Controller
     public function store(AddEmployeeRequest $request, MultiAuthUser $multi_auth_user, Employee $employee)
     {
         $input = $request['employee'];
-        $multi_auth_user->fill($input)->save();
-        $latest_multi_auth_user = $multi_auth_user->latest('id')->first();
-        $latest_multi_auth_user_id = $latest_multi_auth_user->id;
-        $input += ['multi_auth_user_id' => $latest_multi_auth_user_id];
+        $multi_auth_user_id = $request['employee.employee_id'];
+        $multi_auth_user->id = $multi_auth_user_id;
+        $multi_auth_user->save();
+        $input += ['multi_auth_user_id' => $multi_auth_user_id];
         $input['password'] = Hash::make($input['password']);
         $employee->fill($input)->save();
         return redirect('/admin/info');
