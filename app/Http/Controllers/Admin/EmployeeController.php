@@ -38,6 +38,7 @@ class EmployeeController extends Controller
         $employee->date_of_joining_company = $input['date_of_joining_company'];
         $employee->employment_status = $input['employment_status'];
         $employee->multi_auth_user_id = $input['multi_auth_user_id'];
+        $employee->save();
         
         return redirect('/admin/info');
     }
