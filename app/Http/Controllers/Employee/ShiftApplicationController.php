@@ -45,6 +45,8 @@ class ShiftApplicationController extends Controller
         
         $shift_accept = new ShiftAccept();
         $shift_accept->shift_application_id = $shift_application->id;
+        $shift_accept_id = $shift_accept->max('id') + 1;
+        $shift_accept->id = $shift_accept_id;
         $shift_accept->comment = "";
         $shift_accept->save();
         
