@@ -21,14 +21,20 @@ class AbsenceApplicationController extends Controller
     public function store(AbsenceApplicationRequest $request, AbsenceApplication $absence_application, AbsenceShift $absence_shift)
     {
         $absence_application->employee_id = Auth::guard('employees')->id();
+        $absence_application_id = $absence_application->max('id') + 1;
+        $absence_application->id = $absence_application_id;
         $absence_application->save();
         
         $input = $request['absence_shift'];
         $absence_shift->absence_application_id = $absence_application->id;
+        $absence_shift_id = $absence_shift->max('id') + 1;
+        $absence_shift->id = $absence_shift_id;
         $absence_shift->fill($input)->save();
         
         $absence_accept = new AbsenceAccept();
         $absence_accept->absence_application_id = $absence_application->id;
+        $absence_accept_id = $absence_accept->max('id') + 1;
+        $absence_accept->id = $absence_accept_id;
         $absence_accept->comment = "";
         $absence_accept->save();
         
