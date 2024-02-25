@@ -9,9 +9,9 @@
             <form action="/admin/accept" method="GET">
                 @csrf
                 <label for="date">シフト申請検索</label><br>
-                <input class = "mt-7 rounded-lg border border-gray-500" type="date" name="from" value=""/>
+                <input class = "mt-7 rounded-lg border border-gray-500" type="date" name="shift_from" value="{{ old('shift_from') }}" />
                 <span class="mx-3">~</span>
-                <input class = "mt-7 rounded-lg border border-gray-500" type="date" name="until" value=""/>
+                <input class = "mt-7 rounded-lg border border-gray-500" type="date" name="shift_until" value="{{ old('shift_until') }}" />
                 <div class="bg-gray-50 inline-flex border border-gray-200 rounded-lg text-gray-900 select-none divide-x">
                     <button type="submit" class="py-0.5 px-4 bg-gray-50 hover:bg-gray-100 active:bg-gray-200 border border-gray-500 first:rounded-l-lg last:rounded-r-lg">
                         検索
@@ -82,9 +82,9 @@
             <form action="/admin/accept" method="GET">
                 @csrf
                 <label for="date">欠勤申請検索</label><br>
-                <input class = "mt-7 rounded-lg border border-gray-500" type="date" name="from" value=""/>
+                <input class = "mt-7 rounded-lg border border-gray-500" type="date" name="absence_from" value="{{ old('absence_from') }}"/>
                 <span class="mx-3">~</span>
-                <input class = "mt-7 rounded-lg border border-gray-500" type="date" name="until" value=""/>
+                <input class = "mt-7 rounded-lg border border-gray-500" type="date" name="absence_until" value="{{ old('absence_until') }}"/>
                 <div class="bg-gray-50 inline-flex border border-gray-200 rounded-lg text-gray-900 select-none divide-x">
                     <button type="submit" class="py-0.5 px-4 bg-gray-50 hover:bg-gray-100 active:bg-gray-200 border border-gray-500 first:rounded-l-lg last:rounded-r-lg">
                         検索
