@@ -11,7 +11,7 @@ return new class extends Migration
     {
         Schema::create('shift_applications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('employee_id')->constrained();
+            $table->foreignId('employee_id')->constrained('employees', 'employee_id');
             $table->string('comment');
             $table->timestamps();
         });

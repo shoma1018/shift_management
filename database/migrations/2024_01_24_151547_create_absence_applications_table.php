@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('absence_applications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('employee_id')->constrained();
+            $table->foreignId('employee_id')->constrained('employees', 'employee_id');
             $table->timestamps();
         });
     }
