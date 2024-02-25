@@ -11,7 +11,7 @@ class PostRequest extends FormRequest
     {
         return [
             'shift.date' => 'required|date',
-            'shift.image' => 'required|string',
+            'shift.image' => 'required|file',
         ];
     }
     

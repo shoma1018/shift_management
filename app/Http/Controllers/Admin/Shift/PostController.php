@@ -20,6 +20,6 @@ class PostController extends Controller
         $image_url = Cloudinary::upload($request->file('shift.image')->getRealPath())->getSecurePath();
         $input += ['image_url' => $image_url];
         $shift->fill($input)->save();
-        return redirect('/admin/');
+        return redirect('/admin/dashboard');
     }
 }
