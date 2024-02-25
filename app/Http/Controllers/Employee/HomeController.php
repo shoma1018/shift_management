@@ -18,7 +18,7 @@ class HomeController extends Controller
         if ($search == null)
         {
             $datetime = new Datetime();
-            $today = $datetime->format('y-m-d');
+            $today = $datetime->format('Y-m-d');
             $selected_shift = $shift->where('date', $today)->first();
             return view('employee.dashboard')->with(['employee' => $selected_employee, 'shift' => $selected_shift]);
         }
