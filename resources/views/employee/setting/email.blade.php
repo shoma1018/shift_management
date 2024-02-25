@@ -25,7 +25,7 @@
                 
                 <div class="mb-4 w-[100%]">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-10">
-                      新しいパスワード
+                      新しいメールアドレス
                     </label>
                     <input type="text" name="new_email" value = "{{ old('new_email')}}" size="25" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"/><br>
                     <p class="flex justify-center text-red-500">{{ $errors->first('new_email') }}</p>
@@ -33,7 +33,7 @@
                 
                 <div class="mb-4 w-[100%]">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-10">
-                      新しいパスワード(確認)
+                      新しいメールアドレス(確認)
                     </label>
                     <input type="text" name="confirm_email" value = "{{ old('confirm_email')}}" size="25" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"/><br>
                     <p class="flex justify-center text-red-500">{{ $errors->first('confirm_email') }}</p>

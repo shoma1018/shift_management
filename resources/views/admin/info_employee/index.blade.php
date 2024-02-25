@@ -32,7 +32,7 @@
                 <tbody>
                     @foreach ($employees as $employee)
                         <tr>
-                            <td class="border px-4 py-2 text-center">{{ $employee->id }}</td>
+                            <td class="border px-4 py-2 text-center">{{ $employee->employee_id }}</td>
                             <td class="border px-4 py-2 text-center">{{ $employee->name }}</td>
                             <td class="border px-4 py-2 text-center">{{ $employee->genders }}</td>
                             <td class="border px-4 py-2 text-center">{{ $employee->birthdays }}</td>

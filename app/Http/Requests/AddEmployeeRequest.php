@@ -15,7 +15,7 @@ class AddEmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'employee.id' => 'required|unique:multi_auth_users,id',
+            'employee.employee_id' => 'required|unique:multi_auth_users,id',
             'employee.name' => 'required|string',
             'employee.email' => 'required|email:filter|unique:employees,email',
             'employee.password' => 'required|string|min:8',
