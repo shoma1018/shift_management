@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('employees', function (Blueprint $table) {
-            $table->id('employee_id');
+            $table->id();
             $table->foreignId('multi_auth_user_id')->constrained();
             $table->string('name');
             $table->string('email')->unique();
