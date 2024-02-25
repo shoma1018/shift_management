@@ -12,7 +12,7 @@ class Employee extends Authenticatable
 {
 
     use HasApiTokens, HasFactory, Notifiable;
-
+    protected $primarykey = 'employee_id';
     protected $fillable = [
         'employee_id',
         'name',
