@@ -30,6 +30,8 @@ class ShiftApplicationController extends Controller
         for ($i=1;$i<=7;$i++){
             if ($input["start_time{$i}"] && $input["end_time{$i}"]){
                 $shift_pattern = new ShiftPattern;
+                $shift_pattern_id = $shift_pattern->max('id') + 1;
+                $shift_pattern->id = $shift_pattern_id;
                 $shift_pattern->shift_application_id = $shift_application->id;
                 $shift_pattern->day = $i;
                 $shift_pattern->start_time = $input["start_time{$i}"];
