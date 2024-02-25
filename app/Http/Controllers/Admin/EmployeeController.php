@@ -29,7 +29,11 @@ class EmployeeController extends Controller
         $multi_auth_user->save();
         $input += ['multi_auth_user_id' => $multi_auth_user_id];
         $input['password'] = Hash::make($input['password']);
+        $employee->employee_id = $multi_auth_user_id;
+        unset($input['employee_id']);
         $employee->fill($input)->save();
+        
+        
         return redirect('/admin/info');
     }
     
